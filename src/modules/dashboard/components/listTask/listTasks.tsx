@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
-import { IAddTask } from '../addTask'
 import Section from './section'
+import { IAddTask } from '../../ducks/types'
 
 interface IPropsListTasks{
     tasks:Array<IAddTask>,
@@ -13,9 +13,9 @@ function ListTasks({tasks, setTasks}:IPropsListTasks) {
   const [ completed, setCompleted ] = useState<Array<IAddTask>>([])
   
   useEffect(()=>{
-    const filterTodosTask = tasks.filter(task => task.status === 'To Do')
-    const filterInProgressTask = tasks.filter(task => task.status === 'InProgess')
-    const filterCompletedTask = tasks.filter(task => task.status === 'Completed')
+    const filterTodosTask = tasks.filter((task:IAddTask) => task.status === 'To Do')
+    const filterInProgressTask = tasks.filter((task:IAddTask) => task.status === 'In Progress')
+    const filterCompletedTask = tasks.filter((task:IAddTask) => task.status === 'Completed')
    
     setTodos(filterTodosTask)
     setInProgress(filterInProgressTask)

@@ -2,14 +2,7 @@ import React, { ChangeEvent, useState } from 'react'
 import { AddTaskButton, AddTaskWrapper } from '../styledComponent'
 import { v4 as uuid } from 'uuid';
 import toast from 'react-hot-toast';
-
-export interface IAddTask{
-    id: string,
-    name:string,
-    description: string,
-    dueDate:string,
-    status:string
-}
+import { IAddTask } from '../ducks/types';
 
 export interface IPropsAddTask{
   tasks:Array<any>,
