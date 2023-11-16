@@ -13,6 +13,7 @@ function ListTasks({tasks, setTasks}:IPropsListTasks) {
   const [ completed, setCompleted ] = useState<Array<IAddTask>>([])
   
   useEffect(()=>{
+    if(tasks){
     const filterTodosTask = tasks.filter((task:IAddTask) => task.status === 'To Do')
     const filterInProgressTask = tasks.filter((task:IAddTask) => task.status === 'In Progress')
     const filterCompletedTask = tasks.filter((task:IAddTask) => task.status === 'Completed')
@@ -20,6 +21,7 @@ function ListTasks({tasks, setTasks}:IPropsListTasks) {
     setTodos(filterTodosTask)
     setInProgress(filterInProgressTask)
     setCompleted(filterCompletedTask)
+    }
 },[tasks])
    
   const status = ['To Do', 'In Progress', 'Completed']
