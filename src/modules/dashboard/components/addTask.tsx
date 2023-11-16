@@ -30,9 +30,9 @@ function AddTask({tasks, setTasks}:IPropsAddTask) {
     setTasks((prev:any) => {
       const list = [...prev, task]
 
-      if(task.name.length < 3) return toast.error('A task must be more than 3 characters.')
+      if(task?.name.length < 3) return toast.error('A task must be more than 3 characters.')
       
-      if(task.name.length > 100) return toast.error('A task must not be more than 100 characters.')
+      if(task?.name.length > 100) return toast.error('A task must not be more than 100 characters.')
      
       localStorage.setItem('tasks', JSON.stringify(list))
       return list

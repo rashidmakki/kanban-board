@@ -19,7 +19,7 @@ function Section({status, todos, inProgress, completed, tasks, setTasks}:any){
 
     if(status === 'In Progress'){
       taskMap = inProgress
-      bg= 'bg-purple-500'
+      bg= 'bg-sky-500'
     }else if (status === 'Completed'){
       taskMap = completed
       bg = 'bg-green-500'
