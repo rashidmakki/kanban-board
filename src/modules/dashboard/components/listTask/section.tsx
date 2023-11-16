@@ -33,14 +33,15 @@ function Section({status, todos, inProgress, completed, tasks, setTasks}:any){
         }
         return t
      })
-     
+
      localStorage.setItem("tasks", JSON.stringify(modifyTask))
+
      toast("task status changed")
     return modifyTask
    })
   }
   return(
-    <div ref={drop} className={`w-64 rounded-md p-2 ${isOver} ? "bg-slate-200" : ""`}>
+    <div ref={drop} className={`w-64 rounded-md p-2 ${isOver ? "bg-slate-200" : ""}`}>
       <Header
       text={status}
       count={taskMap.length}
