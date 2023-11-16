@@ -1,22 +1,22 @@
 import React,{useState, useEffect} from 'react'
 import Section from './section'
-import { IAddTask } from '../../ducks/types'
+import { ITaskDetails } from '../../ducks/types'
 
 interface IPropsListTasks{
-    tasks:Array<IAddTask>,
+    tasks:Array<ITaskDetails>,
     setTasks: (e:any)=> void
 }
 
 function ListTasks({tasks, setTasks}:IPropsListTasks) {
-  const [ todos, setTodos ] = useState<Array<IAddTask>>([])
-  const [ inProgress, setInProgress] = useState<Array<IAddTask>>([])
-  const [ completed, setCompleted ] = useState<Array<IAddTask>>([])
+  const [ todos, setTodos ] = useState<Array<ITaskDetails>>([])
+  const [ inProgress, setInProgress] = useState<Array<ITaskDetails>>([])
+  const [ completed, setCompleted ] = useState<Array<ITaskDetails>>([])
   
   useEffect(()=>{
     if(tasks){
-    const filterTodosTask = tasks.filter((task:IAddTask) => task.status === 'To Do')
-    const filterInProgressTask = tasks.filter((task:IAddTask) => task.status === 'In Progress')
-    const filterCompletedTask = tasks.filter((task:IAddTask) => task.status === 'Completed')
+    const filterTodosTask = tasks.filter((task:ITaskDetails) => task.status === 'To Do')
+    const filterInProgressTask = tasks.filter((task:ITaskDetails) => task.status === 'In Progress')
+    const filterCompletedTask = tasks.filter((task:ITaskDetails) => task.status === 'Completed')
    
     setTodos(filterTodosTask)
     setInProgress(filterInProgressTask)

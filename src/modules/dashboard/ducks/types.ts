@@ -1,4 +1,4 @@
-export interface IAddTask{
+export interface ITaskDetails{
     id: string,
     name:string,
     description: string,

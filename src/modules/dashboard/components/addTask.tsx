@@ -2,15 +2,15 @@ import React, { ChangeEvent, useState } from 'react'
 import { AddTaskButton, AddTaskWrapper } from '../styledComponent'
 import { v4 as uuid } from 'uuid';
 import toast from 'react-hot-toast';
-import { IAddTask } from '../ducks/types';
+import {  ITaskDetails } from '../ducks/types';
 
 export interface IPropsAddTask{
-  tasks:Array<any>,
+  tasks:Array<ITaskDetails>,
   setTasks: (e:any)=> void
 }
 
 function AddTask({tasks, setTasks}:IPropsAddTask) {
-  const [task, setTask] = useState<IAddTask>({
+  const [task, setTask] = useState<ITaskDetails>({
     id:'',
     name:'',
     description:'',
@@ -31,7 +31,7 @@ function AddTask({tasks, setTasks}:IPropsAddTask) {
       
     if(task?.name.length > 100) return toast.error('A task must not be more than 100 characters.')
      
-    setTasks((prev:Array<IAddTask>) => {
+    setTasks((prev:Array<ITaskDetails>) => {
       let list ;
       if(!prev){
         list = [ task]

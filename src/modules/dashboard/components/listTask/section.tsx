@@ -1,9 +1,9 @@
 import React from 'react'
 import Header from './header'
 import Task from './task'
-import { IAddTask } from '../../ducks/types'
 import {useDrop}  from 'react-dnd'
 import toast from 'react-hot-toast'
+import { ITaskDetails } from '../../ducks/types'
 
 function Section({status, todos, inProgress, completed, tasks, setTasks}:any){
   const [{ isOver }, drop] = useDrop(() => ({
@@ -26,8 +26,8 @@ function Section({status, todos, inProgress, completed, tasks, setTasks}:any){
     }
     
   const addItemToSection = (taskId:string) => {
-   setTasks((prev:Array<IAddTask>)=>{
-     const modifyTask = prev.map((t:IAddTask)=>{
+   setTasks((prev:Array<ITaskDetails>)=>{
+     const modifyTask = prev.map((t:ITaskDetails)=>{
         if( t.id === taskId){
           return { ...t, status:status}
         }
@@ -47,7 +47,7 @@ function Section({status, todos, inProgress, completed, tasks, setTasks}:any){
       count={taskMap.length}
       bg={bg} />
       {
-        taskMap.length > 0 && taskMap.map((task:IAddTask)=> (
+        taskMap.length > 0 && taskMap.map((task:ITaskDetails)=> (
             <Task key={task.id} task={task} tasks={tasks} setTasks={setTasks }/>
         )) 
       }

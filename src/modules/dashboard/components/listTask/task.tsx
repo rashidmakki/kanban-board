@@ -1,13 +1,13 @@
 import React from 'react'
 import { Img } from '../../styledComponent'
 import toast from 'react-hot-toast'
-import { IAddTask } from '../../ducks/types'
 import {useDrag} from 'react-dnd'
+import { ITaskDetails } from '../../ducks/types'
 
 interface ITask {
-    task:IAddTask,
-    tasks: Array<IAddTask>,
-    setTasks: (e:Array<IAddTask>) => void
+    task:ITaskDetails,
+    tasks: Array<ITaskDetails>,
+    setTasks: (e:Array<ITaskDetails>) => void
 }
 
 function Task({task,tasks, setTasks}: ITask) {
@@ -20,7 +20,7 @@ function Task({task,tasks, setTasks}: ITask) {
   }))
 
   const handleRemove = (taskId:string) => {
-    const filterTask = tasks.filter( (task:IAddTask) =>  task.id !== taskId)
+    const filterTask = tasks.filter( (task:ITaskDetails) =>  task.id !== taskId)
     setTasks(filterTask)
     localStorage.setItem("tasks", JSON.stringify(filterTask))
     toast("Task removed")
